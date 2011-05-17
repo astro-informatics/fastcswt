@@ -1,0 +1,5 @@
+# Dilation file
+unit:       arcmin
+n_dil:           1
+     1       300.0   300.0
+
