@@ -1,5 +1,4 @@
 # Makefile for cswt library
-# Jason McEwen
 
 
 # ======== OPTIONS ========
