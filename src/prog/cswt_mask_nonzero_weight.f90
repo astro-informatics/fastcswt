@@ -130,7 +130,6 @@ program cswt_mask_nonzero_weight
         write(fileid,'(a,i3.3)') 'Dilation index i_dil=', i_dil
         
         do i_gamma = 1,cswt_tr_get_n_gamma(tr_mask)
-           
            write(fileid,'(a,i2.2,f21.4)') ' Orientation index i_gamma=', &
                 i_gamma, &
                 prop(i_dil, i_gamma)
@@ -184,7 +183,7 @@ program cswt_mask_nonzero_weight
         call getArgument(i,opt)
      
         if (i == n .and. trim(opt) /= '-help') then
-          write(*,*) 'option ', opt, ' has no argument'
+          write(*,'(a,a,a)') 'Option ', trim(opt), ' has no argument'
           stop
         end if
      
@@ -205,7 +204,7 @@ program cswt_mask_nonzero_weight
             filename_out = trim(arg)
 
           case default
-            print '("unknown option ",a4," ignored")', opt            
+            print '("Unknown option ",a," ignored")', trim(opt)
 
         end select
       end do

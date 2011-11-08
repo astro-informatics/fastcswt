@@ -229,7 +229,7 @@ program cswt_plot_swav
             read(arg,*) param(i_param)  
 
           case default
-            print '("unknown option ",a4," ignored")', opt            
+            print '("Unknown option ",a," ignored")', trim(opt)
 
         end select
       end do

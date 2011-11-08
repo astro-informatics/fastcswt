@@ -124,7 +124,7 @@ program cswt_mask_copy
         call getArgument(i,opt)
      
         if (i == n .and. trim(opt) /= '-help') then
-          write(*,*) 'option ', trim(opt), ' has no argument'
+          write(*,'(a,a,a)') 'Option ', trim(opt), ' has no argument'
           stop
         end if
      
@@ -165,7 +165,7 @@ program cswt_mask_copy
             filename_out = trim(arg)
 
           case default
-            print '("unknown option ",a," ignored")', trim(opt)
+            print '("Unknown option ",a," ignored")', trim(opt)
 
         end select
       end do

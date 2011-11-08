@@ -1,54 +1,37 @@
 !------------------------------------------------------------------------------
-! cswt_mask_invert -- CSWT mask_apply program
+! cswt_about -- CSWT about program
 !
-!! Invert a coefficient mask by converting ones to zeros, and zeros to 
-!! ones.
+!! Display information about the CSWT package.
 !!
-!! Notes:
-!!   - Original mask should be in one/zero format, not display format.
-!!
-!! Usage: cswt_mask_invert
+!! Usage: cswt_about 
 !!   - [-help]: Display usage information.
-!!   - [-inp filename_inp]: Name of input file containing original mask
-!!     to be inverted.
-!!   - [-out filename_out]: Name of output file created that will contain 
-!!     the inverted mask.
 !     
 !! @author J. D. McEwen (mcewen@mrao.cam.ac.uk)
-!! @version 0.1 - January 2005
+!! @version 0.1 - November 2011
 !
 ! Revisions:
-!   January 2005 - Written by Jason McEwen 
+!   November 2011 - Written by Jason McEwen 
 !------------------------------------------------------------------------------
 
-program cswt_mask_invert
+program cswt_about
 
   use s2_types_mod
-  use cswt_tr_mod
 
   implicit none
 
-  character(len=S2_STRING_LEN) :: &
-    filename_in, &
-    filename_out
+  ! Display info.
+  write(*,'(a)') "=========================================================="
+  write(*,'(a)') "CSWT package to perform a fast directional continuous "
+  write(*,'(a)') "wavelet transform on the sphere"
+  write(*,'(a)') "By Jason McEwen"
 
-  type(cswt_tr) :: tr_mask
+  write(*,'(a)') "See www.jasonmcewen.org for more information."
+  write(*,'(a)') "See LICENSE.txt for license details."
 
-  ! Parse options from command line.
-  call parse_options()
+  write(*,'(a,a)') "Version: ", CSWT_VERSION
+  write(*,'(a,a)') "Build: ", CSWT_BUILD
+  write(*,'(a)') "=========================================================="
 
-  ! Read in wavelet coefficients.
-  tr_mask = cswt_tr_init(filename_in)
-
-  ! Invert zeros and ones in mask.
-  call cswt_tr_mask_invert(tr_mask)
-
-  ! Write inverted mask to output file.
-  call cswt_tr_io_fits_write_wcoeff(filename_out, tr_mask)
-
-  ! Free memory.
-  call cswt_tr_free(tr_mask)
-  
 
   !----------------------------------------------------------------------------
 
@@ -60,7 +43,7 @@ program cswt_mask_invert
     !
     !! Parse the options passed when program called.
     !
-    !! @author J. D. McEwen (mcewen@mrao.cam.ac.uk)
+    !!! @author J. D. McEwen (mcewen@mrao.cam.ac.uk)
     !! @version 0.1 - November 2004
     !
     ! Revisions:
@@ -94,18 +77,11 @@ program cswt_mask_invert
         select case (trim(opt))
   
           case ('-help')
-            write(*,'(a)') 'Usage: cswt_mask_invert [-inp filename_in]'
-            write(*,'(a)') '                        [-out filename_out]'
+            write(*,'(a)') 'Usage: cswt_about'
             stop
-          
-          case ('-inp')
-            filename_in = trim(arg)
-         
-          case ('-out')
-            filename_out = trim(arg)
 
           case default
-            print '("Unknown option ",a," ignored")', trim(opt)
+            print '("Unknown option ",a," ignored")', trim(opt)            
 
         end select
       end do
@@ -113,6 +89,4 @@ program cswt_mask_invert
     end subroutine parse_options
 
 
-end program cswt_mask_invert
-
-  
+end program cswt_about

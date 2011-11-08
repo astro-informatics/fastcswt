@@ -8,14 +8,14 @@ USEPGPLOT = no
 
 # ======== COMPILER ========
 
-FC      = gfortran -m64
+FC      = gfortran
 #FC      = f95
 #FC      = g95
 
 ifneq ($(USEPGPLOT),yes)
   OPTPGPLOT     = -DNO_PGPLOT
 endif
-OPT = $(OPTPGPLOT)
+OPT = $(OPTPGPLOT) -m64 -O2 -DCSWT_VERSION=\"1.0b2\" -DCSWT_BUILD=\"`svnversion -n .`\" 
 
 
 # ======== LINKS ========
@@ -115,7 +115,8 @@ prog:    $(CSWTBIN)/cswt_analysis            \
          $(CSWTBIN)/cswt_mask_nonzero        \
          $(CSWTBIN)/cswt_mask_nonzero_weight \
          $(CSWTBIN)/cswt_plot_swav           \
-         $(CSWTBIN)/cswt_swav_azbandlim
+         $(CSWTBIN)/cswt_swav_azbandlim      \
+         $(CSWTBIN)/cswt_about
 
 
 $(CSWTINC)/%.o: $(CSWTSRC)/%.f90
@@ -242,6 +243,11 @@ $(CSWTINC)/cswt_test_tr.o:             $(CSWTPROG)/cswt_test_tr.f90 lib
 $(CSWTBIN)/cswt_test_tr:               $(CSWTINC)/cswt_test_tr.o
 	$(FC) -o $(CSWTBIN)/cswt_test_tr \
 	$(CSWTINC)/cswt_test_tr.o $(LDFLAGS) $(PPFLAGS)
+
+$(CSWTINC)/cswt_about.o:             $(CSWTPROG)/cswt_about.f90 lib
+$(CSWTBIN)/cswt_about:               $(CSWTINC)/cswt_about.o
+	$(FC) -o $(CSWTBIN)/cswt_about \
+	$(CSWTINC)/cswt_about.o $(LDFLAGS) $(PPFLAGS)
 
 
 
