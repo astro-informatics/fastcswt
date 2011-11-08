@@ -19,6 +19,9 @@ program cswt_about
 
   implicit none
 
+  ! Parse input parameters.
+  call parse_options()
+
   ! Display info.
   write(*,'(a)') "=========================================================="
   write(*,'(a)') "CSWT package to perform a fast directional continuous "
