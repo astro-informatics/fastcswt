@@ -21,7 +21,7 @@ OPT = $(OPTPGPLOT)
 
 # ======== LINKS ========
 
-PROGDIR    = /Users/jdm/Src
+PROGDIR    = ..
 
 HPIXDIR = $(PROGDIR)/Healpix
 HPIXLIB = $(HPIXDIR)/lib
