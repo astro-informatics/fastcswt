@@ -18,7 +18,7 @@ VERSION
      Release 1.0, 1 July 2008
 
 AUTHORS
-     J. D. McEwen (mcewen@mrao.cam.ac.uk)
+     J. D. McEwen (http://www.jasonmcewen.org)
 
 ACKNOWLEDGEMENTS
      D. J. Mortlock
@@ -30,7 +30,7 @@ REFERENCE
        Wandelt B. D. & Gorski K. M., 2001, Phys.  Rev. D., 63, 123002,
        1-–6.
      If you use the code to produce published works please reference
-     the download site http://www.mrao.cam.ac.uk/~jdm57/ and our
+     the download site http://www.jasonmcewen.org and our
      related paper:
        J. D. McEwen, M. P. Hobson, D. J. Mortlock, and
        A. N. Lasenby. Fast directional continuous spherical wavelet
@@ -38,26 +38,26 @@ REFERENCE
        2007 (astro-ph/0506308).
 
 DOCUMENTATION 
-     See doc/index_cswt.html
+     See doc/index.html
 
 REQUIREMENTS
-     S2 (http://www.mrao.cam.ac.uk/~jdm57/)
+     S2 (http://www.jasonmcewen.org/codes.html)
      HEALPix (http://healpix.jpl.nasa.gov/)
      CFITSIO (http://heasarc.gsfc.nasa.gov/docs/software/fitsio/)
-		 FFTW 2.1.5 (http://www.fftw.org)
+     FFTW 2.1.5 (http://www.fftw.org)
 
 INSTALLATION
-     See doc/index_cswt.html
+     See doc/index.html
 
 DOWNLOAD
-     http://www.mrao.cam.ac.uk/~jdm57/
+     http://www.jasonmcewen.org/codes.html
 
 SUPPORT
-     Contact Jason McEwen (mcewen@mrao.cam.ac.uk)
+     Contact Jason McEwen
 
 NOTE
      The package is still under development
-     Please report problems/bugs by email to: mcewen@mrao.cam.ac.uk
+     Please report problems/bugs by email to Jason McEwen
 
 LICENSE 
      FastCSWT package to perform a directional continuous wavelet
